@@ -105,3 +105,4 @@ npx expo start     # Start Expo development server
 - **Auth:** Clerk
 - **Package Manager:** npm
 ---
+# -React_Native_App

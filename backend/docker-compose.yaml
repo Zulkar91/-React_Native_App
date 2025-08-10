@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: /root/tim/react-native-recipe-app/backend
+    ports:
+      - "5001:5001"
+    environment:
+      - DATABASE_URL=postgres://recipeuser:yourpassword@recipe-postgres:5432/recipedb
+    depends_on:
+      - recipe-postgres
+
+  recipe-postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: recipeuser
+      POSTGRES_PASSWORD: recipepass
+      POSTGRES_DB: recipedb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+volumes:
+  pgdata:
+
